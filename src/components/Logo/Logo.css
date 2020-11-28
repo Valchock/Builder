@@ -1,0 +1,12 @@
+/*Toolbar - height -56px athula 80%*/
+.Logo {
+    height : 100%;
+    background-color: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.Logo img {
+    height : 100%
+}
