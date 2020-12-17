@@ -1,9 +1,10 @@
 import React from 'react'
 import BurgerIngredient from '../Burger/BurgerIngredient/BurgerIngredient'
 import './Burger.css'
+import {withRouter} from 'react-router-dom'
 
 const burger = (props) =>{
-
+    console.log(props);
     /*Object.keys() extracts keys of given object and turns into array (like hashmap)
     console.log(Object.keys(props.ingredients)) - ["salad", "meat", "bacon", "cheese"}
     
@@ -43,4 +44,4 @@ const burger = (props) =>{
     )
 }
 
-export default burger;
+export default withRouter(burger); //output-ingredient

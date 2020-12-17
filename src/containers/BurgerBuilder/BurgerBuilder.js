@@ -68,7 +68,7 @@ class BurgerBuilder extends Component{
         this.setState({purchasing: false})
     }
 
-    pruchaseContinueHandler = () =>{
+    purchaseContinueHandler = () =>{
         this.setState({loading : true})
         const order = {
             ingredients : this.state.ingredients,
@@ -93,7 +93,12 @@ class BurgerBuilder extends Component{
              });
     }
 
+    purchaseContinue = () =>{
+        this.props.history.push('/checkout');
+    }
+
     componentDidMount(){
+        console.log(this.props);
         axios.get('/ingredients.json')
              .then(response =>{
                  this.setState({ ingredients : response.data})
@@ -127,7 +132,7 @@ class BurgerBuilder extends Component{
               ingredients = {this.state.ingredients}
               totalPrice = {this.state.totalPrice}
               purchaseCancelled = {this.purchaseCancelHandler}
-              purchaseContinue = {this.pruchaseContinueHandler}/>
+              purchaseContinue = {this.purchaseContinue}/>
         }
         if(this.state.loading){
             orderSummary = <Spinner/>
