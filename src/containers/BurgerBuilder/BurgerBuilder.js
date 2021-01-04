@@ -93,8 +93,18 @@ class BurgerBuilder extends Component{
              });
     }
 
+    //encodeUriComponent - encodes elements in uri, responsible for whitspace
+    // /checkout?salad=1&meat=3&bacon=2
     purchaseContinue = () =>{
-        this.props.history.push('/checkout');
+        const queryParams = [];
+        for(let i in this.state.ingredients){
+            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i])); //salad = 1
+         }
+        const queryString = queryParams.join('&')
+        this.props.history.push({
+            pathname : '/checkout',
+            search : '?' + queryString
+        });
     }
 
     componentDidMount(){
